@@ -1,0 +1,160 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" type="image/png" href="{% static 'images/icon.png' %}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/icon.png' %}" />
+    <link rel="mask-icon" type="image/x-icon" href="{% static 'images/icon.png' %}" color="#111" />
+    <title>PFAM | Add Pet</title>
+    <link rel="stylesheet" href="{% static 'css/add-pet.css' %}">
+</head>
+<body>
+    <!-- form start  -->
+    <section id="section">
+        {% if messages %}
+        <style>
+            .msg{
+                color: red;
+                text-align: center;
+                padding: 2%;
+            }
+        </style>
+            {% for msg in messages %}
+                <h3 class="msg">{{msg}}</h3>
+            {% endfor %}
+        {% endif %}
+        <h1>So Let Us Know About Your Pet?</h1>
+        <div class="form-progress">
+            <progress class="form-progress-bar" min="0" max="100" value="0" step="33" aria-labelledby="form-progress-completion"></progress>
+            <div class="form-progress-indicator one active"></div>
+            <div class="form-progress-indicator two"></div>
+            <div class="form-progress-indicator three"></div>
+            <div class="form-progress-indicator four"></div>
+        </div>
+        
+        <form action="" method="post" autocomplete="off">
+            {% csrf_token %}
+            <div class="animation-container">
+                <!-- Step one -->
+                <div class="form-step js-form-step" data-step="1">
+                    <p class="form-instructions">
+                        <strong>Enter Your Pet's Name and Breed</strong>
+                        <br>
+                        Please fill out the fields below so we can learn some information about your pet.
+                    </p>
+                    <div class="fieldgroup">
+                        <input type="text" name="name" id="name" required />
+                        <label for="name">Pet's Name</label>
+                    </div>
+                    <div class="fieldgroup">
+                        <input type="text" name="type" id="type" required />
+                        <label for="type">Type</label>
+                    </div>
+                    <div class="fieldgroup">
+                        <input type="text" name="breed" id="breed" required />
+                        <label for="breed">Breed</label>
+                    </div>    
+                    <div class="fieldgroup">
+                        <input type="text" name="add-breed" id="add-breed" />
+                        <label for="add-breed">Additional Breed (if any)</label>
+                    </div>    
+                    <div class="buttons">
+                        <a href="{{request.META.HTTP_REFERER}}" class="btn btn-alt">Go Back</a>        
+                        <a href="" class="btn js-continue">Continue</a>        
+                    </div>
+                </div>
+                
+                <!-- Step two -->
+                <div class="form-step js-form-step waitingRight hidden" data-step="2">
+                    <p class="form-instructions">
+                        <strong>Enter Yor Pet's Details</strong>
+                        <br> 
+                        Please fill in the form as accurate as possible.
+                    </p>
+                    <div class="fieldgroup">
+                        <input type="date" name="dob" id="dob" class="hasInput" required />
+                        <label for="dob">Date of Birth</label>
+                    </div>
+                    <div class="fieldgroup">
+                        <select name="gender" id="gender" required>
+                            <option></option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                        <label for="gender">Gender</label>
+                    </div>    
+                    <div class="fieldgroup">
+                        <input type="number" name="height" id="height" min="1" step="0.01" required>
+                        <label for="height">Height (in cm)</label>
+                    </div>    
+                    <div class="fieldgroup">
+                        <input type="number" name="weight" id="weight" min="1" step="0.01" required>
+                        <label for="weight">Weight (in Kg)</label>
+                    </div>
+                    <div class="buttons">
+                        <a href="" class="btn btn-alt js-back">Go Back</a>
+                        <a href="" class="btn js-continue">Continue</a>
+                    </div>
+                </div>
+                
+                <!-- Step three -->
+                <div class="form-step js-form-step waitingRight hidden" data-step="3">
+                    <p class="form-instructions">
+                        <strong>Additional Details About Your Pet.</strong>
+                        <br> 
+                        Please tell us your pet's meal and behavior. And Allergies if any.
+                    </p>
+                    <div class="fieldgroup">
+                        <input type="text" name="meal" id="meal" required />
+                        <label for="meal">His Current Meal</label>
+                    </div>
+                    <div class="fieldgroup">
+                        <input type="text" name="allergies" id="allergies" />
+                        <label for="allergies">Allergies (if any)</label>
+                    </div>    
+                    <div class="fieldgroup">
+                        <input type="text" name="dislike" id="dislike" />
+                        <label for="dislike">Does Your Pet Hate Something (In meal)</label>
+                    </div>
+                    <div class="buttons">
+                        <a href="" class="btn btn-alt js-back">Go Back</a>
+                        <a href="" class="btn js-continue">Continue</a>
+                    </div>
+                </div>
+                
+                <!-- Step four -->
+                <div class="form-step js-form-step waitingRight hidden" data-step="4">
+                    <p class="form-instructions">
+                        <strong>Your food preferences.</strong>
+                        <br> 
+                        Please add your food preference and any kind of help you looking for.
+                    </p>
+                    <div class="fieldgroup">
+                        <input type="text" name="prefered-food" id="prefered-food" />
+                        <label for="prefered-food">Prefered food</label>
+                    </div>
+                    <div class="fieldgroup">
+                        <input type="text" name="activity" id="activity" />
+                        <label for="activity">His Favourite Activity</label>
+                    </div>
+                    <div class="fieldgroup">
+                        <input type="text" name="help-required" id="help-required" />
+                        <label for="help-required">Help (if reguired)</label>
+                    </div>
+                    <div class="buttons">
+                        <a href="" class="btn btn-alt js-back">Go Back</a>
+                        <button type="submit" class="btn" value="submit" name="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+    <!-- form end  -->
+
+    <script src="{% static 'js/add-pet.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+.scheduler{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.scheduler h1, h3{
+    margin-top: 2%;
+    font-size: large;
+    font-weight: bold;
+}
+
+.task-container{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task-container .task-name{
+    padding: 10px;
+    margin: 0 1%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: medium;
+    text-transform: capitalize;
+}
+
+.task-name:hover{
+    transform: scale(1.15);
+}
+
+.task-name.selected{
+    box-shadow:0px 0px 2px 2px black;
+}
+
+#deselect{
+    background-color: #1d3557;
+    color: white;
+}
+
+.schedule-container{
+    background: linear-gradient(#ebf4f5, #99e4a9);
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    padding: 1rem;
+    margin-top: 2%;
+}
+
+table{
+    text-align: center;
+}
+
+.day{
+    width: 100px;
+    border: solid 2px white;
+    color: #475e8d;
+    padding: 1%;
+}
+
+.time{
+    color: white;
+    background-color: #103783;
+    text-align: center;
+    border: solid 2px white;
+    padding: 1%;
+}
+
+.task{
+    border: solid 2px white;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 1%;
+}
+
+.btn-grp{
+    margin: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn{
+    font-size: larger;
+    padding: 10%;
+    border: none;
+    background-color: white;
+    border: solid 2px black;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    margin: 0 40%;
+}

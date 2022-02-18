@@ -1,0 +1,76 @@
+{% load static %}
+{% static 'images' as baseURL %}
+
+<!-- pet section start  -->
+<div class="rela-block">
+    <div class="pets"><h1>My Pets</h1></div>
+    <div class="pets">
+        <form action="" method="get">
+            {% if pets|length > 0 %}
+                {% for pet in pets %}
+                    <button class="pet" id="{{pet.name}}" name="q" value="{{pet.name}}" data-type="{{pet.type}}">{{pet.name}}</button>
+                {% endfor %}
+            {% else %}
+                <label class="no-pet">You have not added any pet. Add Now --> </label>
+            {% endif %}
+            <button class="pet add-pet" name="q" value="add-pet" data-type="add-pet">+</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    .pets{
+        margin: 1% 1%;
+        font-weight: bolder;
+        font-size: x-large;
+    }
+    
+    .pet{
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        background-color: aliceblue;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-blend-mode: overlay;
+    }
+
+    .pet:hover{
+        transform: scale(1.1);
+    }
+
+    .add-pet{
+        font-size: xx-large;
+    }
+    
+    .pet-active{
+        border: 5px solid rgb(211, 75, 75);
+    }
+
+    .no-pet{
+        font-weight: 400;
+        color: rgb(211, 75, 75);
+        text-align: center;
+        margin: 1% 1%;
+    }
+</style>
+
+<script>
+    const pets = document.getElementsByClassName("pet");
+    for(let i=0; i<pets.length; i++){
+        const img = pets[i].getAttribute("data-type");    
+        pets[i].style.backgroundImage = `url('{{baseURL}}/${img}.png')`;
+    }
+</script>
+
+{% if q %}
+    <script>
+        document.getElementById("{{q}}").classList.add("pet-active");
+    </script>
+{% endif %}
+
+<!-- pet section end  -->

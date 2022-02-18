@@ -1,0 +1,157 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block head %}
+  <title>PFAM | Scheduler</title>
+  <link rel="stylesheet" href="{% static 'css/scheduler.css' %}">
+{% endblock head %}
+
+{% block content %}
+
+  <!-- heading start  -->
+  <div class="rela-block portfolio-top grad-back" id="topSection">
+    <h1 class="half-big-text has-border">Scheduler</h1>
+  </div>
+  <!-- heading end  -->
+
+  {% include 'base/pets.html' %}
+
+  {% if q %}
+
+  <!-- scheduler start  -->
+  <div class="rela-block scheduler">
+
+    <h1>Select a task</h1>
+    
+    <div class="task-container">
+      <div class="task-name" id="walk" style="background-color: #f7f779;">walk</div>
+      <div class="task-name" id="play" style="background-color: #f68080">play</div>
+      <div class="task-name" id="food" style="background-color: #faae7b">food</div>
+      <div class="task-name" id="sleep" style="background-color: #2a9d8f">sleep</div>
+      <div class="task-name" id="bath" style="background-color: #a8dadc">bath</div>
+      <div class="task-name" id="deselect">Deselect All</div>
+    </div>
+
+    <h3>Add selected task to the schedule</h3>
+    
+    <div class="schedule-container">
+      <table style="width: 100%;">
+          <thead>
+            <th style="width: 8%;"></th>
+            <th class="day">Sunday</th>
+            <th class="day">Monday</th>
+            <th class="day">Tuesday</th>
+            <th class="day">Wednesday</th>
+            <th class="day">Thrusday</th>
+            <th class="day">Friday</th>
+            <th class="day">Saturday</th>
+          </thead>
+          <tr>
+            <td class="time"> 12am <br> - <br> 3am </td>
+            <td class="task sun">{{schedule.sun.m0}}</td>
+            <td class="task mon">{{schedule.mon.m0}}</td>
+            <td class="task tue">{{schedule.tue.m0}}</td>
+            <td class="task wed">{{schedule.wed.m0}}</td>
+            <td class="task thru">{{schedule.thr.m0}}</td>
+            <td class="task fri">{{schedule.fri.m0}}</td>
+            <td class="task sat">{{schedule.sat.m0}}</td>
+          </tr>
+          <tr>
+            <td class="time"> 3am <br> - <br> 6am </td>
+            <td class="task sun">{{schedule.sun.m3}}</td>
+            <td class="task mon">{{schedule.mon.m3}}</td>
+            <td class="task tue">{{schedule.tue.m3}}</td>
+            <td class="task wed">{{schedule.wed.m3}}</td>
+            <td class="task thru">{{schedule.thr.m3}}</td>
+            <td class="task fri">{{schedule.fri.m3}}</td>
+            <td class="task sat">{{schedule.sat.m3}}</td>
+          </tr>
+          <tr>
+            <td class="time"> 6am <br> - <br> 9am </td>
+            <td class="task sun">{{schedule.sun.m6}}</td>
+            <td class="task mon">{{schedule.mon.m6}}</td>
+            <td class="task tue">{{schedule.tue.m6}}</td>
+            <td class="task wed">{{schedule.wed.m6}}</td>
+            <td class="task thru">{{schedule.thr.m6}}</td>
+            <td class="task fri">{{schedule.fri.m6}}</td>
+            <td class="task sat">{{schedule.sat.m6}}</td>
+          </tr>
+          <tr>
+            <td class="time"> 9am <br> - <br> 12pm </td>
+            <td class="task sun">{{schedule.sun.m9}}</td>
+            <td class="task mon">{{schedule.mon.m9}}</td>
+            <td class="task tue">{{schedule.tue.m9}}</td>
+            <td class="task wed">{{schedule.wed.m9}}</td>
+            <td class="task thru">{{schedule.thr.m9}}</td>
+            <td class="task fri">{{schedule.fri.m9}}</td>
+            <td class="task sat">{{schedule.sat.m9}}</td>
+          </tr>
+          <tr>
+            <td class="time"> 12pm <br> - <br> 3pm </td>
+            <td class="task sun">{{schedule.sun.m12}}</td>
+            <td class="task mon">{{schedule.mon.m12}}</td>
+            <td class="task tue">{{schedule.tue.m12}}</td>
+            <td class="task wed">{{schedule.wed.m12}}</td>
+            <td class="task thru">{{schedule.thr.m12}}</td>
+            <td class="task fri">{{schedule.fri.m12}}</td>
+            <td class="task sat">{{schedule.sat.m12}}</td>
+          </tr>
+          <tr>
+            <td class="time"> 3pm <br> - <br> 6pm </td>
+            <td class="task sun">{{schedule.sun.m15}}</td>
+            <td class="task mon">{{schedule.mon.m15}}</td>
+            <td class="task tue">{{schedule.tue.m15}}</td>
+            <td class="task wed">{{schedule.wed.m15}}</td>
+            <td class="task thru">{{schedule.thr.m15}}</td>
+            <td class="task fri">{{schedule.fri.m15}}</td>
+            <td class="task sat">{{schedule.sat.m15}}</td>
+          </tr>
+          <tr>
+            <td class="time"> 6pm <br> - <br> 9pm </td>
+            <td class="task sun">{{schedule.sun.m18}}</td>
+            <td class="task mon">{{schedule.mon.m18}}</td>
+            <td class="task tue">{{schedule.tue.m18}}</td>
+            <td class="task wed">{{schedule.wed.m18}}</td>
+            <td class="task thru">{{schedule.thr.m18}}</td>
+            <td class="task fri">{{schedule.fri.m18}}</td>
+            <td class="task sat">{{schedule.sat.m18}}</td>
+          </tr>
+          <tr>
+            <td class="time"> 9pm <br> - <br> 12am </td>
+            <td class="task sun">{{schedule.sun.m21}}</td>
+            <td class="task mon">{{schedule.mon.m21}}</td>
+            <td class="task tue">{{schedule.tue.m21}}</td>
+            <td class="task wed">{{schedule.wed.m21}}</td>
+            <td class="task thru">{{schedule.thr.m21}}</td>
+            <td class="task fri">{{schedule.fri.m21}}</td>
+            <td class="task sat">{{schedule.sat.m21}}</td>
+          </tr>
+      </table>
+    </div>
+    <form action="" method="post" class="btn-grp">
+      {% csrf_token %}
+      <div class="btn-grp">
+        <button type="reset" class="btn js-reset-schedule">Reset</button>
+        <button type="submit" class="btn js-save-schedule" name="save">Save</button>
+      </div>
+      <input type="text" class="js-pass-data" name="sun" id="sun" value="" readonly style="display: none;">
+      <input type="text" class="js-pass-data" name="mon" id="mon" value="" readonly style="display: none;">
+      <input type="text" class="js-pass-data" name="tue" id="tue" value="" readonly style="display: none;">
+      <input type="text" class="js-pass-data" name="wed" id="wed" value="" readonly style="display: none;">
+      <input type="text" class="js-pass-data" name="thru" id="thru" value="" readonly style="display: none;">
+      <input type="text" class="js-pass-data" name="fri" id="fri" value="" readonly style="display: none;">
+      <input type="text" class="js-pass-data" name="sat" id="sat" value="" readonly style="display: none;">
+    </form>
+  </div>
+  <!-- scheduler end  -->
+
+  {% elif pets|length > 0 %}
+    <div class="no-pet">Please Select Your Pet To See Their Schedule</div>
+  {% endif %}
+
+  <script src="{% static 'js/scheduler.js' %}"></script>
+
+  <!-- including footer  -->
+  {% include 'base/footer.html' %}
+  
+{% endblock content %}
